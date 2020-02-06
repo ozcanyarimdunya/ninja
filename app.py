@@ -12,7 +12,7 @@ env.filters["format_date"] = format_date
 
 template = env.get_template("query.template")
 sql = template.render(
-    db_name="MY_DB",
+    db_name="my_db",
     table_name="Users",
     variables=[
         {"field_name": "name", "field_type": "VARCHAR"},
