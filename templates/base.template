@@ -1,0 +1,3 @@
+USE {{ db_name }};
+{% block content %}
+{% endblock content %}

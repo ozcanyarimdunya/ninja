@@ -1,0 +1,21 @@
+{% extends "base.template" %}
+
+{% block content %}
+
+{% with name=table_name, fields=variables %}
+{% include "create.template" %}
+{% endwith %}
+
+SELECT
+    {% for v in variables %}
+        {{ v.field_name }} {{ "," if not loop.last }}
+    {% endfor %}
+FROM
+    {{ table_name }}
+WHERE
+    timestamp >= '{{date|format_date}}'
+{% if orderby %}
+ORDER BY {{ orderby }}
+{% endif %}
+;
+{% endblock content %}
